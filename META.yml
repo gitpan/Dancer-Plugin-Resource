@@ -31,7 +31,7 @@ resources:
   bugtracker: https://github.com/mphill22/Dancer-Plugin-Resource/issues
   homepage: https://github.com/mphill22/Dancer-Plugin-Resource/wiki
   repository: git://github.com/mphill22/Dancer-Plugin-Resource.git
-version: 1.121952
+version: 1.121953
 x_Dist_Zilla:
   plugins:
     -

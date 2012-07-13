@@ -9,7 +9,7 @@
 package Dancer::Plugin::Resource;
 # ABSTRACT: A plugin for writing declarative RESTful apps with Dancer
 BEGIN {
-our $VERSION = '1.121952'; # VERSION
+our $VERSION = '1.121953'; # VERSION
 }
 
 use strict;
@@ -112,12 +112,13 @@ register resource => sub {
 
     # or if the user wants to override to take multiple params, ie /user/:foo/:bar/:baz
     # allow it. This could be useful for composite key schemas
-    $params =
-        ref $options{params} eq 'ARRAY'                     ? $options{params}
-      : $options{params} && ref $options{params} eq ''     ? [$options{params}]
-      :                                                       ["${singular_resource}"];
-
-    $params = join '/', map {":${_}_id"} @{$params};
+    if ( my $p = $options{params} ) {
+        $p = ref $p ? $p : [$p];
+        $params = join '/', map ":${_}", @{$p};
+    }
+    else {
+        $params = ":${singular_resource}_id";
+    }
 
     my ($package) = caller;
 
@@ -432,7 +433,7 @@ Dancer::Plugin::Resource - A plugin for writing declarative RESTful apps with Da
 
 =head1 VERSION
 
-version 1.121952
+version 1.121953
 
 =head1 SYNOPSIS
 
@@ -467,17 +468,13 @@ writing RESTful web services and applications in Dancer. It borrows ideas from
 both Ruby on Rails and Catalyst::Action::REST, while adding some new ones to
 boot. At its core it is used to combine two things:
 
-=item 1.
+=item 1
 
 generate routes automatically for a 'resource' and map them to easily named functions.
 
-=back
-
-=item 2.
+=item 2
 
 handle automatic serialization based off of what the user requests.
-
-=back
 
 =head1 KEYWORDS
 

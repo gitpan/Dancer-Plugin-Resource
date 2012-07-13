@@ -9,7 +9,7 @@
 package Dancer::Plugin::Resource;
 # ABSTRACT: A plugin for writing declarative RESTful apps with Dancer
 BEGIN {
-our $VERSION = '1.121951'; # VERSION
+our $VERSION = '1.121952'; # VERSION
 }
 
 use strict;
@@ -432,7 +432,7 @@ Dancer::Plugin::Resource - A plugin for writing declarative RESTful apps with Da
 
 =head1 VERSION
 
-version 1.121951
+version 1.121952
 
 =head1 SYNOPSIS
 
@@ -460,6 +460,25 @@ version 1.121951
     name: "John Foo"
     email: "john.foo@example.com"
 
+=head1 DESCRIPTION
+
+Dancer::Plugin::Resource is a dancer plugin aimed at simplifying and aiding in
+writing RESTful web services and applications in Dancer. It borrows ideas from
+both Ruby on Rails and Catalyst::Action::REST, while adding some new ones to
+boot. At its core it is used to combine two things:
+
+=item 1.
+
+generate routes automatically for a 'resource' and map them to easily named functions.
+
+=back
+
+=item 2.
+
+handle automatic serialization based off of what the user requests.
+
+=back
+
 =head1 KEYWORDS
 
 =head2 resource
@@ -470,8 +489,7 @@ a resource your application will handle.
 By default, you can pass in a mapping of CRUD actions to subrefs that will
 align to auto-generated routes: At its simplest, you can call it with no
 arguments. This will create the following routes, and try to map them to
-functions in the namespace you called it from. This behavior is similar to Ruby
-on Rails and Catalyst::Action::REST.
+functions in the namespace you called it from.
 
     resource 'users';
 
@@ -568,6 +586,7 @@ optional.
 
 Defines the list of params that the given resource takes in its part of the
 path. Takes scalar or arrayref for 1 or multiple params.
+
     resource 'users', params => [qw/foo bar/]; # /users/:foo/:bar
 
 =head3 load/load_all

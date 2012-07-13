@@ -9,7 +9,7 @@
 package Dancer::Plugin::Resource;
 # ABSTRACT: A plugin for writing declarative RESTful apps with Dancer
 BEGIN {
-our $VERSION = '1.121950'; # VERSION
+our $VERSION = '1.121951'; # VERSION
 }
 
 use strict;
@@ -432,7 +432,7 @@ Dancer::Plugin::Resource - A plugin for writing declarative RESTful apps with Da
 
 =head1 VERSION
 
-version 1.121950
+version 1.121951
 
 =head1 SYNOPSIS
 
@@ -460,26 +460,18 @@ version 1.121950
     name: "John Foo"
     email: "john.foo@example.com"
 
-=head1 DESCRIPTION
-
-This plugin helps you write a RESTful webservice with Dancer.
-
-=head1 NAME
-
-Dancer::Plugin::Resource - A plugin for writing declarative RESTful apps with Dancer
-
 =head1 KEYWORDS
 
 =head2 resource
 
-This keyword is the meat of the plugin. It lets you declare a resource your
-application will handle.
+This keyword is the meat of Dancer::Plugin::Resource. It lets you declare
+a resource your application will handle.
 
 By default, you can pass in a mapping of CRUD actions to subrefs that will
-align to auto-generated routes:
-At its simplest, you can call it with no arguments. This will create the
-following routes, and try to map them to functions in the namespace you called
-it from. This behavior is similar to Ruby on Rails and Catalyst::Action::REST.
+align to auto-generated routes: At its simplest, you can call it with no
+arguments. This will create the following routes, and try to map them to
+functions in the namespace you called it from. This behavior is similar to Ruby
+on Rails and Catalyst::Action::REST.
 
     resource 'users';
 

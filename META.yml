@@ -28,10 +28,10 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://github.com/mphill22/Dancer-Plugin-Resource/issues
-  homepage: https://github.com/mphill22/Dancer-Plugin-Resource/wiki
-  repository: git://github.com/mphill22/Dancer-Plugin-Resource.git
-version: 1.121953
+  bugtracker: https://github.com/mattp-/Dancer-Plugin-Resource/issues
+  homepage: https://github.com/mattp-/Dancer-Plugin-Resource/wiki
+  repository: git://github.com/mattp-/Dancer-Plugin-Resource.git
+version: 1.122280
 x_Dist_Zilla:
   plugins:
     -

@@ -1,7 +1,7 @@
 #
 # This file is part of Dancer-Plugin-Resource
 #
-# This software is copyright (c) 2012 by Matthew Phillips.
+# This software is copyright (c) 2013 by Matthew Phillips.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
@@ -9,7 +9,7 @@
 package Dancer::Plugin::Resource;
 # ABSTRACT: A plugin for writing declarative RESTful apps with Dancer
 BEGIN {
-our $VERSION = '1.122280'; # VERSION
+our $VERSION = '1.131120'; # VERSION
 }
 
 use strict;
@@ -175,7 +175,7 @@ register resource => sub {
 
     # member routes are actions on the given id. ie /users/:user_id/foo
     for my $member (@{$options{member}}) {
-        my $path = "${plural_resource}/:${singular_resource}_id/${member}";
+        my $path = "${plural_resource}/$params/${member}";
         my $member_param = "";
 
         _post(
@@ -446,7 +446,7 @@ Dancer::Plugin::Resource - A plugin for writing declarative RESTful apps with Da
 
 =head1 VERSION
 
-version 1.122280
+version 1.131120
 
 =head1 SYNOPSIS
 
@@ -699,7 +699,7 @@ Matthew Phillips <mattp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Matthew Phillips.
+This software is copyright (c) 2013 by Matthew Phillips.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

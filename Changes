@@ -1,3 +1,7 @@
+1.131120  2013-04-22 15:36:30 EST5EDT
+  * fix bug in member collections that uses singular_resource instead of
+  * override params if specified
+
 1.122280  2012-08-15 14:07:36 EST5EDT
   * bugfix - :params route was getting declared _after_, not before the nonparam
    route. this was causing the nonparam route to take dispatcher precedence.
